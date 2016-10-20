@@ -1,6 +1,16 @@
 #ifndef _NODE_H_
 #define _NODE_H_
-class Node
+
+class Noncopyable {
+protected:
+	Noncopyable(){}
+	~Noncopyable(){}
+private:
+	Noncopyable(const Noncopyable&);
+	const Noncopyable& operator=(const Noncopyable&);
+};
+
+class Node : private Noncopyable
 {
 public:
 	Node(){}
