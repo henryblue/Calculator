@@ -3,6 +3,17 @@
 Scanner::Scanner(const std::string& buf) : buf_(buf), curPos_(0)
 {
 	Accept();
+	isEmpty_ = (token_ == TOKEN_END);
+}
+
+bool Scanner::IsEmpty() const
+{
+	return isEmpty_;
+}
+
+bool Scanner::IsScannerDone() const
+{
+	return (token_ == TOKEN_END);
 }
 
 double Scanner::Number() const
@@ -12,6 +23,11 @@ double Scanner::Number() const
 EToken Scanner::Token() const
 {
 	return token_;
+}
+
+std::string Scanner::GetSymbol() const
+{
+	return symbol_;
 }
 
 //ºöÂÔ¿Õ°××Ö·û
@@ -42,6 +58,10 @@ void Scanner::Accept()
 		token_ = TOKEN_DIVIDE;
 		++curPos_;
 		break;
+	case '=':
+		token_ = TOKEN_ASSIGN;
+		++curPos_;
+		break;
 	case '(':
 		token_ = TOKEN_LPARENTHESIS;
 		++curPos_;
@@ -62,7 +82,22 @@ void Scanner::Accept()
 		token_ = TOKEN_END;
 		break;
 	default:
-		token_ = TOKEN_ERROR;
+		if (isalpha(buf_[curPos_]) || buf_[curPos_] == '_')
+		{
+			token_ = TOKEN_IDENTIFIER;
+			symbol_.erase();
+			char ch = buf_[curPos_];
+			do
+			{
+				symbol_ += ch;
+				++curPos_;
+				ch = buf_[curPos_];
+			} while (isalnum(ch) || ch == '_');
+		}
+		else
+		{
+			token_ = TOKEN_ERROR;
+		}
 		break;
 	}
 }

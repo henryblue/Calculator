@@ -3,6 +3,8 @@
 
 class Scanner;
 class Node;
+class Calc;
+
 enum STATUS
 {
 	STATUS_OK,
@@ -13,9 +15,9 @@ enum STATUS
 class Parser
 {
 public:
-	Parser(Scanner& scanner);
+	Parser(Scanner& scanner, Calc& calc);
 	~Parser(){}
-	void Parse();
+	STATUS Parse();
 	Node* Expr();
 	Node* Term();
 	Node* Factor();
@@ -23,6 +25,7 @@ public:
 
 private:
 	Scanner& scanner_;
+	Calc& calc_;
 	Node* tree_;
 	STATUS status_;
 

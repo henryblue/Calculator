@@ -23,8 +23,11 @@ public:
 	Scanner(const std::string& buf);
 	~Scanner(){}
 	void Accept();
+	bool IsEmpty() const;
+	bool IsScannerDone() const;
 	double Number() const;
 	EToken Token() const;
+	std::string GetSymbol() const;
 
 private:
 	void skipWhite();
@@ -34,6 +37,8 @@ private:
 	EToken token_;
 	double number_;
 	unsigned int curPos_;
+	std::string symbol_;
+	bool isEmpty_;
 };
 
 #endif //_SCANNER_H_

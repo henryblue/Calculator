@@ -27,6 +27,18 @@
     <ClCompile Include="Parser.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="SymbolTable.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Storage.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Calc.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FuncationTable.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Node.h">
@@ -36,6 +48,18 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Parser.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SymbolTable.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Storage.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Calc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FuncationTable.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
