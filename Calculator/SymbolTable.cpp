@@ -1,4 +1,5 @@
 #include "SymbolTable.h"
+#include "Exception.h"
 #include <algorithm>
 
 SymbolTable::~SymbolTable()
@@ -49,12 +50,9 @@ std::string SymbolTable::GetSymbolName(unsigned int id) const
 	std::map<const std::string, unsigned int>::const_iterator it;
 	IsEqualId isEqualId(id);
 	it = find_if(dictionary_.begin(), dictionary_.end(), isEqualId);
-	if (it != dictionary_.end())
+	if (it == dictionary_.end())
 	{
-		return it->first;
+		throw Exception("Internal error: missing entry in symbol table");
 	}
-	else
-	{
-		return "";
-	}
+	return it->first;
 }

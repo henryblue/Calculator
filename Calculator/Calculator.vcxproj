@@ -79,6 +79,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Calc.cpp" />
+    <ClCompile Include="Exception.cpp" />
     <ClCompile Include="FuncationTable.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Node.cpp" />
@@ -89,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Calc.h" />
+    <ClInclude Include="Exception.h" />
     <ClInclude Include="FuncationTable.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Parser.h" />

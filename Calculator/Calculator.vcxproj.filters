@@ -39,6 +39,9 @@
     <ClCompile Include="FuncationTable.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Exception.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Node.h">
@@ -60,6 +63,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="FuncationTable.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Exception.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

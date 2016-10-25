@@ -2,8 +2,9 @@
 #include "scanner.h"
 #include "Node.h"
 #include "Calc.h"
+#include "Exception.h"
 #include <cassert>
-#include <iostream>
+#include <cstring>
 
 Parser::Parser(Scanner& scanner, Calc& calc) 
 : scanner_(scanner), calc_(calc), tree_(0), status_(STATUS_OK)
@@ -60,8 +61,7 @@ Node* Parser::Expr()
 		else
 		{
 			status_ = STATUS_ERROR;
-			//TODO 抛出异常
-			std::cout << "the left-hand side of an assignment, must be a variable" << std::endl;
+			throw SyntaxError("the left-hand side of an assignment, must be a variable");
 		}
 	}
 	return node;
@@ -112,8 +112,7 @@ Node* Parser::Factor()
 		else
 		{
 			status_ = STATUS_ERROR;
-			// TODO: 抛出异常
-			std::cout << "missing parentthesis" << std::endl;
+			throw SyntaxError("missing parentthesis");
 			node = 0;
 		}
 	}
@@ -142,15 +141,15 @@ Node* Parser::Factor()
 				else
 				{
 					status_ = STATUS_ERROR;
-					// TODO: 抛出异常
-					std::cout << "UnKnown funcation: " <<"\""<<symbol<<"\"" <<std::endl;
+					char buf[256] = { 0 };
+					sprintf_s(buf, "UnKnown funcation: \"%s\"", symbol.c_str());
+					throw SyntaxError(buf);
 				}
 			}
 			else
 			{
 				status_ = STATUS_ERROR;
-				// TODO: 抛出异常
-				std::cout << "missing parentthesis in a funcation call" << std::endl;
+				throw SyntaxError("missing parentthesis in a funcation call");
 			}
 		}
 		else  //是变量
@@ -170,8 +169,7 @@ Node* Parser::Factor()
 	else
 	{
 		status_ = STATUS_ERROR;
-		// TODO: 抛出异常
-		std::cout << "Not a valid expreesion" << std::endl;
+		throw SyntaxError("Not a valid expreesion");
 		node = 0;
 	}
 	return node;

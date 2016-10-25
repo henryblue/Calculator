@@ -3,6 +3,7 @@
 #include "Scanner.h"
 #include "Parser.h"
 #include "Calc.h"
+#include "Exception.h"
 
 int main() 
 {
@@ -18,14 +19,25 @@ int main()
 		if (!scanner.IsEmpty())
 		{
 			Parser parser(scanner, calc);
-			status = parser.Parse();
-			if (status == STATUS_OK)
+			try
 			{
-				std::cout << parser.Calculate() << std::endl;
+				status = parser.Parse();
+				if (status == STATUS_OK)
+				{
+					std::cout << parser.Calculate() << std::endl;
+				}
 			}
-			else if (status == STATUS_ERROR)
+			catch (SyntaxError& e)
 			{
-				std::cout << "Syntax Error" << std::endl;
+				std::cout << e.what() << std::endl;
+			}
+			catch (Exception& e)
+			{
+				std::cout << e.what() << std::endl;
+			}
+			catch (...)
+			{
+				std::cout << "Internal error" << std::endl;
 			}
 		}
 		else
