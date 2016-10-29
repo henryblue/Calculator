@@ -1,8 +1,9 @@
-#include "Node.h"
-#include "Storage.h"
 #include <cmath>
 #include <cassert>
 #include <iostream>
+#include "Node.h"
+#include "Storage.h"
+#include "DebugNew.h"
 
 
 double NumberNode::Calc() const

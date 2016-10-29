@@ -1,8 +1,9 @@
-#include "FuncationTable.h"
-#include "SymbolTable.h"
 #include <cmath>
 #include <cassert>
 #include <iostream>
+#include "FuncationTable.h"
+#include "SymbolTable.h"
+#include "DebugNew.h"
 
 struct FuncationEntry
 {

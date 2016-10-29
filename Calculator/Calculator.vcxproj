@@ -87,9 +87,11 @@
     <ClCompile Include="Scanner.cpp" />
     <ClCompile Include="Storage.cpp" />
     <ClCompile Include="SymbolTable.cpp" />
+    <ClCompile Include="Tracer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Calc.h" />
+    <ClInclude Include="DebugNew.h" />
     <ClInclude Include="Exception.h" />
     <ClInclude Include="FuncationTable.h" />
     <ClInclude Include="Node.h" />
@@ -97,6 +99,7 @@
     <ClInclude Include="Scanner.h" />
     <ClInclude Include="Storage.h" />
     <ClInclude Include="SymbolTable.h" />
+    <ClInclude Include="Tracer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

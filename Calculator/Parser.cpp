@@ -1,14 +1,20 @@
+#include <cassert>
+#include <cstring>
 #include "Parser.h"
 #include "scanner.h"
 #include "Node.h"
 #include "Calc.h"
 #include "Exception.h"
-#include <cassert>
-#include <cstring>
+#include "DebugNew.h"
 
 Parser::Parser(Scanner& scanner, Calc& calc) 
 : scanner_(scanner), calc_(calc), tree_(0), status_(STATUS_OK)
 {
+}
+
+Parser::~Parser()
+{
+	delete tree_;
 }
 
 STATUS Parser::Parse()

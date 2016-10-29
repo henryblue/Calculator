@@ -16,7 +16,7 @@ class Parser
 {
 public:
 	Parser(Scanner& scanner, Calc& calc);
-	~Parser(){}
+	~Parser();
 	STATUS Parse();
 	Node* Expr();
 	Node* Term();

@@ -1,6 +1,6 @@
+#include <algorithm>
 #include "SymbolTable.h"
 #include "Exception.h"
-#include <algorithm>
 
 SymbolTable::~SymbolTable()
 {

@@ -29,19 +29,28 @@ int main()
 			}
 			catch (SyntaxError& e)
 			{
+				status = STATUS_QUIT;
 				std::cout << e.what() << std::endl;
 			}
 			catch (Exception& e)
 			{
+				status = STATUS_QUIT;
+				std::cout << e.what() << std::endl;
+			}
+			catch (std::bad_alloc& e)
+			{
+				status = STATUS_QUIT;
 				std::cout << e.what() << std::endl;
 			}
 			catch (...)
 			{
+				status = STATUS_QUIT;
 				std::cout << "Internal error" << std::endl;
 			}
 		}
 		else
 		{
+			status = STATUS_QUIT;
 			std::cout << "Expression is empty" << std::endl;
 		}
 	} while (status != STATUS_QUIT);

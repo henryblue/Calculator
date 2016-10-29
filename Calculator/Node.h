@@ -1,8 +1,8 @@
 #ifndef _NODE_H_
 #define _NODE_H_
-#include "FuncationTable.h"
-#include <vector>
 #include <cassert>
+#include <vector>
+#include "FuncationTable.h"
 
 class Storage;
 
