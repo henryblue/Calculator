@@ -1,6 +1,8 @@
 #ifndef _PARSER_H_
 #define _PARSER_H_
 
+#include <memory>
+
 class Scanner;
 class Node;
 class Calc;
@@ -18,15 +20,15 @@ public:
 	Parser(Scanner& scanner, Calc& calc);
 	~Parser();
 	STATUS Parse();
-	Node* Expr();
-	Node* Term();
-	Node* Factor();
+	std::auto_ptr<Node> Expr();
+	std::auto_ptr<Node> Term();
+	std::auto_ptr<Node> Factor();
 	double Calculate() const;
 
 private:
 	Scanner& scanner_;
 	Calc& calc_;
-	Node* tree_;
+	std::auto_ptr<Node> tree_;
 	STATUS status_;
 
 };

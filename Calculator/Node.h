@@ -2,6 +2,7 @@
 #define _NODE_H_
 #include <cassert>
 #include <vector>
+#include <memory>
 #include "FuncationTable.h"
 
 class Storage;
@@ -44,23 +45,25 @@ private:
 class BinaryNode : public Node
 {
 public:
-	BinaryNode(Node* left, Node* right) :
+	BinaryNode(std::auto_ptr<Node>& left, std::auto_ptr<Node>& right) :
 		leftNode_(left), rightNode_(right){}
 	~BinaryNode();
 
 protected:
-	Node* const leftNode_;
-	Node* const rightNode_;
+	//Node* const leftNode_;
+	//Node* const rightNode_;
+	std::auto_ptr<Node> leftNode_;
+	std::auto_ptr<Node> rightNode_;
 };
 
 class UnaryNode : public Node
 {
 public:
-	UnaryNode(Node* child) 
+	UnaryNode(std::auto_ptr<Node>& child)
 		: childNode_(child){}
 	~UnaryNode();
 protected:
-	Node* const childNode_;
+	std::auto_ptr<Node> childNode_;
 };
 
 //class AddNode : public BinaryNode
@@ -102,7 +105,7 @@ protected:
 class AssignNode : public BinaryNode
 {
 public:
-	AssignNode(Node* left, Node* right)
+	AssignNode(std::auto_ptr<Node>& left, std::auto_ptr<Node>& right)
 		:BinaryNode(left, right)
 	{
 		assert(left->IsValue());
@@ -114,7 +117,7 @@ public:
 class UMinusNode : public UnaryNode
 {
 public:
-	UMinusNode(Node* child)
+	UMinusNode(std::auto_ptr<Node>& child)
 		: UnaryNode(child){}
 	double Calc() const;
 	~UMinusNode(){}
@@ -123,7 +126,7 @@ public:
 class FuncationNode : public UnaryNode
 {
 public:
-	FuncationNode(Node* child, PtrFun pFun)
+	FuncationNode(std::auto_ptr<Node>& child, PtrFun pFun)
 		: UnaryNode(child), pFun_(pFun){}
 	double Calc() const;
 	~FuncationNode(){}
@@ -135,9 +138,9 @@ private:
 class MultipleNode : public Node
 {
 public:
-	MultipleNode(Node* node);
+	MultipleNode(std::auto_ptr<Node>& node);
 	~MultipleNode();
-	void AppendChild(Node* node, bool psitive);
+	void AppendChild(std::auto_ptr<Node>& node, bool psitive);
 
 protected:
 	std::vector<Node*> childs_;
@@ -147,7 +150,7 @@ protected:
 class SumNode : public MultipleNode
 {
 public:
-	SumNode(Node* node) : MultipleNode(node){}
+	SumNode(std::auto_ptr<Node>& node) : MultipleNode(node){}
 	~SumNode(){}
 	double Calc() const;
 
@@ -156,7 +159,7 @@ public:
 class ProductNode : public MultipleNode
 {
 public:
-	ProductNode(Node* node) : MultipleNode(node){}
+	ProductNode(std::auto_ptr<Node>& node) : MultipleNode(node){}
 	~ProductNode(){}
 	double Calc() const;
 

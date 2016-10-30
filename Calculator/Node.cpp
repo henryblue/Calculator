@@ -13,13 +13,13 @@ double NumberNode::Calc() const
 
 BinaryNode::~BinaryNode()
 {
-	delete leftNode_;
-	delete rightNode_;
+	//delete leftNode_;
+	//delete rightNode_;
 }
 
 UnaryNode::~UnaryNode()
 {
-	delete childNode_;
+	//delete childNode_;
 }
 
 //double AddNode::Calc() const
@@ -61,7 +61,7 @@ double FuncationNode::Calc() const
 	return (*pFun_)(childNode_->Calc());
 }
 
-MultipleNode::MultipleNode(Node* node)
+MultipleNode::MultipleNode(std::auto_ptr<Node>& node)
 {
 	AppendChild(node, true);
 }
@@ -75,9 +75,9 @@ MultipleNode::~MultipleNode()
 	}
 }
 
-void MultipleNode::AppendChild(Node* node, bool positive)
+void MultipleNode::AppendChild(std::auto_ptr<Node>& node, bool positive)
 {
-	childs_.push_back(node);
+	childs_.push_back(node.release());
 	positives_.push_back(positive);
 }
 
