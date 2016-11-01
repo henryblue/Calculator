@@ -20,7 +20,7 @@ enum EToken
 class Scanner
 {
 public:
-	Scanner(const std::string& buf);
+	explicit Scanner(std::istream& in);
 	~Scanner(){}
 	void Accept();
 	bool IsEmpty() const;
@@ -30,15 +30,15 @@ public:
 	std::string GetSymbol() const;
 
 private:
-	void skipWhite();
+	void ReadChar();
 
 private:
-	const std::string buf_;
+	std::istream& in_;
 	EToken token_;
 	double number_;
-	unsigned int curPos_;
 	std::string symbol_;
 	bool isEmpty_;
+	int look_;
 };
 
 #endif //_SCANNER_H_

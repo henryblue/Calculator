@@ -108,7 +108,7 @@ public:
 	AssignNode(std::auto_ptr<Node>& left, std::auto_ptr<Node>& right)
 		:BinaryNode(left, right)
 	{
-		assert(left->IsValue());
+		assert(leftNode_->IsValue());
 	}
 	double Calc() const;
 	~AssignNode(){}
