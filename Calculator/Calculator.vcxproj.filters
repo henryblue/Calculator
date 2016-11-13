@@ -45,6 +45,12 @@
     <ClCompile Include="Tracer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="CommandParser.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Serial.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Node.h">
@@ -75,6 +81,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Tracer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandParser.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Serial.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

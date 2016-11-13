@@ -79,24 +79,28 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Calc.cpp" />
+    <ClCompile Include="CommandParser.cpp" />
     <ClCompile Include="Exception.cpp" />
     <ClCompile Include="FuncationTable.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Parser.cpp" />
     <ClCompile Include="Scanner.cpp" />
+    <ClCompile Include="Serial.cpp" />
     <ClCompile Include="Storage.cpp" />
     <ClCompile Include="SymbolTable.cpp" />
     <ClCompile Include="Tracer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Calc.h" />
+    <ClInclude Include="CommandParser.h" />
     <ClInclude Include="DebugNew.h" />
     <ClInclude Include="Exception.h" />
     <ClInclude Include="FuncationTable.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="Scanner.h" />
+    <ClInclude Include="Serial.h" />
     <ClInclude Include="Storage.h" />
     <ClInclude Include="SymbolTable.h" />
     <ClInclude Include="Tracer.h" />

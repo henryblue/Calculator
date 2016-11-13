@@ -49,7 +49,7 @@ void Tracer::Dump()
 {
 	if (mapEntry_.size() > 0)
 	{
-		std::cout << "***Memory leak(s):" << std::endl;
+		//std::cout << "***Memory leak(s):" << std::endl;
 		std::map<void*, Entry>::iterator it;
 		for (it = mapEntry_.begin(); it != mapEntry_.end(); ++it)
 		{

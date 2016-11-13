@@ -11,6 +11,8 @@ friend class Parser;
 public:
 	Calc();
 	~Calc();
+	void ListFun() const;
+	void ListVar() const;
 
 private:
 	unsigned int FindSymbol(const std::string& str) const;
@@ -18,6 +20,7 @@ private:
 	Storage& GetStorage();
 	bool IsFuncation(unsigned int id) const;
 	PtrFun GetFuncation(unsigned int id) const;
+	bool GetVariableValue(unsigned int id, double& val) const;
 
 private:
 	SymbolTable symTbl_;

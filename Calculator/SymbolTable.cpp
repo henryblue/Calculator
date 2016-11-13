@@ -6,6 +6,11 @@ SymbolTable::~SymbolTable()
 {
 }
 
+unsigned int SymbolTable::GetCurId() const
+{
+	return curId_;
+}
+
 unsigned int SymbolTable::Add(const std::string& str)
 {
 	dictionary_[str] = curId_;

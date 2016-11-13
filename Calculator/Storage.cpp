@@ -1,6 +1,6 @@
 #include <cmath>
 #include <cassert>
-#include <iostream>
+//#include <iostream>
 #include "Storage.h"
 #include "SymbolTable.h"
 
@@ -27,13 +27,13 @@ bool Storage::IsInit(unsigned int id) const
 
 void Storage::AddConstants(SymbolTable& tbl)
 {
-	std::cout << "variable list:" << std::endl;
+	//std::cout << "variable list:" << std::endl;
 	unsigned int id = tbl.Add("e");
 	AddValue(id, exp(1.0));
-	std::cout << "  e=" << exp(1.0) << std::endl;
+	//std::cout << "  e=" << exp(1.0) << std::endl;
 	id = tbl.Add("pi");
 	AddValue(id, 2.0 * acos(0.0)); //·´ÓàÏÒ pi = 2*cos(0)
-	std::cout << "  pi=" << 2.0 * acos(0.0) << std::endl << std::endl;
+	//std::cout << "  pi=" << 2.0 * acos(0.0) << std::endl << std::endl;
 }
 
 double Storage::GetValue(unsigned int id) const
@@ -44,13 +44,13 @@ double Storage::GetValue(unsigned int id) const
 
 void Storage::SetValue(unsigned int id, double val)
 {
-	assert(id <= cells_.size());
+	assert(id >= 0);
 	if (id < cells_.size())
 	{
 		cells_[id] = val;
 		inits_[id] = true;
 	}
-	else if (id == cells_.size())
+	else
 	{
 		AddValue(id, val);
 	}

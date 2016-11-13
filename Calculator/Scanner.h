@@ -4,6 +4,7 @@
 
 enum EToken
 {
+	TOKEN_COMMAND,
 	TOKEN_END,
 	TOKEN_ERROR,
 	TOKEN_NUMBER,
@@ -23,7 +24,9 @@ public:
 	explicit Scanner(std::istream& in);
 	~Scanner(){}
 	void Accept();
+	void AcceptCommand();
 	bool IsEmpty() const;
+	bool IsCommand() const;
 	bool IsScannerDone() const;
 	double Number() const;
 	EToken Token() const;
