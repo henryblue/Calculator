@@ -61,3 +61,30 @@ std::string SymbolTable::GetSymbolName(unsigned int id) const
 	}
 	return it->first;
 }
+
+void SymbolTable::Serialize(Serializer& out) const
+{
+	out << dictionary_.size();
+	std::map<std::string, unsigned int>::const_iterator it;
+	for (it = dictionary_.begin(); it != dictionary_.end(); ++it)
+	{
+		out << it->first << it->second;
+	}
+
+	out << curId_;
+}
+
+void SymbolTable::DeSerialize(DeSerializer& in)
+{
+	dictionary_.clear();
+	unsigned int size;
+	in >> size;
+	for (unsigned int i = 0; i < size; ++i)
+	{
+		std::string key;
+		unsigned int id;
+		in >> key >> id;
+		dictionary_[key] = id;
+	}
+	in >> curId_;
+}

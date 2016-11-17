@@ -53,16 +53,4 @@ public:
 
 };
 
-class CheckNumberError : public Exception
-{
-public:
-	explicit CheckNumberError(const char* message) :Exception(message) {
-
-	}
-	explicit CheckNumberError(const std::string& message) :Exception(message) {
-
-	}
-	virtual ~CheckNumberError() throw(){}
-
-};
 #endif //_EXCEPTION_H_

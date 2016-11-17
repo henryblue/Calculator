@@ -128,7 +128,10 @@ Serializer& Serializer::Put(bool data)
 DeSerializer::DeSerializer(const std::string& filename)
 :stream_(filename.c_str(), ios::in | ios::binary)
 {
-
+	if (!stream_)
+	{
+		throw FileStreamError("Couldn't open file.");
+	}
 }
 
 DeSerializer::~DeSerializer()
@@ -272,7 +275,7 @@ DeSerializer& DeSerializer::Get(bool& data)
 	}
 	else
 	{
-		throw CheckNumberError("Data Error.");
+		throw FileStreamError("Data Error.");
 	}
 	return *this;
 }

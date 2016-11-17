@@ -69,3 +69,15 @@ Storage& Calc::GetStorage()
 {
 	return storage_;
 }
+
+void Calc::Serialize(Serializer& out) const
+{
+	symTbl_.Serialize(out);
+	storage_.Serialize(out);
+}
+
+void Calc::DeSerialize(DeSerializer& in)
+{
+	symTbl_.DeSerialize(in);
+	storage_.DeSerialize(in);
+}

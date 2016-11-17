@@ -4,8 +4,9 @@
 #include "SymbolTable.h"
 #include "Storage.h"
 #include "FuncationTable.h"
+#include "Serial.h"
 
-class Calc
+class Calc : public Serializable
 {
 friend class Parser;
 public:
@@ -13,6 +14,10 @@ public:
 	~Calc();
 	void ListFun() const;
 	void ListVar() const;
+
+public:
+	void Serialize(Serializer& out) const;
+	void DeSerialize(DeSerializer& in);
 
 private:
 	unsigned int FindSymbol(const std::string& str) const;

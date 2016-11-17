@@ -53,4 +53,11 @@ public:
 private:
 	std::ifstream stream_;
 };
+
+class Serializable
+{
+public:
+	virtual void Serialize(Serializer& out) const = 0;
+	virtual void DeSerialize(DeSerializer& in) = 0;
+};
 #endif // _SERIAL_H_

@@ -2,10 +2,11 @@
 #define _STORAGE_H_
 
 #include <vector>
+#include "Serial.h"
 
 class SymbolTable;
 
-class Storage
+class Storage : public Serializable
 {
 public:
 	Storage(SymbolTable& tbl);
@@ -16,6 +17,10 @@ public:
 	double GetValue(unsigned int id) const;
 	void SetValue(unsigned int id, double val);
 	void AddValue(unsigned int id, double val);
+
+public:
+	void Serialize(Serializer& out) const;
+	void DeSerialize(DeSerializer& in);
 
 private:
 	std::vector<double> cells_;
