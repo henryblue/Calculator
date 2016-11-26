@@ -2,18 +2,18 @@
 Simple Console Calculator using C++
 
 #ClassMap
-Node Class diagram, include Number Node, Operator node(Binary Node, UnaryNode and Multiple Node) and variable node.
+
+- Node Class diagram, include Number Node, Operator node(Binary Node, UnaryNode and Multiple Node) and variable node.
 <p>
 <img src="class diagram/class1.png"  width="90%" />
 </p>
 
-Scanner class is responsible for the expression of the scan, Parser class is parse the expression to the corresponding node.
+- Scanner class is responsible for the expression of the scan, Parser class is parse the expression to the corresponding node.
 <p>
 <img src="class diagram/class2.png" width="80%" />
 </p>
 
-These classes are mainly responsible for the storage of data, including the function and variable. 
-Serialize class nmake the storage of data can serialize
+- These classes are mainly responsible for the storage of data, including the function and variable. Serialize class nmake the storage of data can serialize
 <p>
 <img src="class diagram/class3.png" width="80%" />
 </p>
@@ -66,5 +66,9 @@ atan
 4
 >>b
 3
+>>!save test.txt
+save "test.txt".
+>>!load test.txt
+load "test.txt".
 >>!quit
 ```
