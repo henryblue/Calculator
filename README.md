@@ -1,7 +1,7 @@
 # Calculator
 Simple Console Calculator using C++
 
-#ClassMap
+# ClassMap
 
 - Node Class diagram, include Number Node, Operator node(Binary Node, UnaryNode and Multiple Node) and variable node.
 <p>
@@ -18,8 +18,8 @@ Simple Console Calculator using C++
 <img src="class diagram/class3.png" width="80%" />
 </p>
 
-#How to use
-###Recogniaed Commands
+# How to use
+### Recogniaed Commands
 - !h: Help
 - !quit: quit
 - !v: show variable list
@@ -27,7 +27,7 @@ Simple Console Calculator using C++
 - !load filename: load file
 - !save filename: save variable and funcation to file
 
-###Example
+### Example
 ```
 >> 123+7-10*8-10+9*(4-3)/4
 42.25
@@ -73,7 +73,7 @@ load "test.txt".
 >>!quit
 ```
 
-##Liense
+## Liense
 
 ```
 Copyright 2016 henryblue
